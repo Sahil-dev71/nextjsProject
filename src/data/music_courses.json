@@ -1,0 +1,104 @@
+{
+  "courses": [
+    {
+      "id": 1,
+      "title": "Guitar Fundamentals",
+      "slug": "guitar-fundamentals",
+      "description": "Learn the basics of playing guitar with our comprehensive beginner's course.",
+      "price": 99.99,
+      "instructor": "John Doe",
+      "isFeatured": true,
+      "image": "/courses/guitar.jpg"
+    },
+    {
+      "id": 2,
+      "title": "Piano for Beginners",
+      "slug": "piano-for-beginners",
+      "description": "Start your musical journey with foundational piano skills taught by expert instructors.",
+      "price": 79.99,
+      "instructor": "Jane Smith",
+      "isFeatured": false,
+      "image": "/courses/piano.jpg"
+    },
+    {
+      "id": 3,
+      "title": "Advanced Violin Techniques",
+      "slug": "advanced-violin-techniques",
+      "description": "Master the violin with advanced techniques and performance tips.",
+      "price": 149.99,
+      "instructor": "Emily Johnson",
+      "isFeatured": true,
+      "image": "/courses/violin.jpg"
+    },
+    {
+      "id": 4,
+      "title": "Drumming Masterclass",
+      "slug": "drumming-masterclass",
+      "description": "Enhance your drumming skills with our in-depth masterclass.",
+      "price": 129.99,
+      "instructor": "Michael Brown",
+      "isFeatured": false,
+      "image": "/courses/drums.jpg"
+    },
+    {
+      "id": 5,
+      "title": "Songwriting Essentials",
+      "slug": "songwriting-essentials",
+      "description": "Learn the art of songwriting from industry professionals.",
+      "price": 89.99,
+      "instructor": "Laura Wilson",
+      "isFeatured": true,
+      "image": "/courses/songwriting.jpg"
+    },
+    {
+      "id": 6,
+      "title": "Jazz Improvisation",
+      "slug": "jazz-improvisation",
+      "description": "Develop your improvisational skills in jazz with our comprehensive course.",
+      "price": 119.99,
+      "instructor": "Chris Davis",
+      "isFeatured": false,
+      "image": "/courses/jazz.jpg"
+    },
+    {
+      "id": 7,
+      "title": "Music Production Basics",
+      "slug": "music-production-basics",
+      "description": "Get started with music production using modern tools and techniques.",
+      "price": 109.99,
+      "instructor": "Sophia Martinez",
+      "isFeatured": true,
+      "image": "/courses/production.jpg"
+    },
+    {
+      "id": 8,
+      "title": "Electronic Music Creation",
+      "slug": "electronic-music-creation",
+      "description": "Create stunning electronic music tracks with guidance from top producers.",
+      "price": 139.99,
+      "instructor": "Daniel Taylor",
+      "isFeatured": false,
+      "image": "/courses/electronic.jpg"
+    },
+    {
+      "id": 9,
+      "title": "Classical Music Appreciation",
+      "slug": "classical-music-appreciation",
+      "description": "Explore and appreciate the beauty of classical music across the ages.",
+      "price": 59.99,
+      "instructor": "Grace Lee",
+      "isFeatured": false,
+      "image": "/courses/classical-music.jpg"
+    },
+    {
+      "id": 10,
+      "title": "Blues Guitar Techniques",
+      "slug": "blues-guitar-techniques",
+      "description": "Discover the techniques of blues guitar to add soul and depth to your playing.",
+      "price": 189.99,
+      "instructor": "Ethan Moore",
+      "isFeatured": true,
+      "image": "/courses/blues.jpg"
+    }
+  ]
+}
