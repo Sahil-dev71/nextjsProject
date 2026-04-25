@@ -1,11 +1,12 @@
 "use client";
 import React from "react";
 import { motion } from "motion/react";
+import { cn } from "@/utils/utils";
 
 
 
 const transition = {
-  type: "spring",
+  type: "spring" as const,
   mass: 0.5,
   damping: 11.5,
   stiffness: 100,
@@ -24,14 +25,28 @@ export const MenuItem = ({
   item: string;
   children?: React.ReactNode;
 }) => {
+  const isActive = active === item;
   return (
     <div onMouseEnter={() => setActive(item)} className="relative ">
-      <motion.p
-        transition={{ duration: 0.3 }}
-        className="cursor-pointer text-black hover:opacity-[0.9] dark:text-white"
+      <motion.div
+        transition={{ duration: 0.2 }}
+        className={cn(
+          "cursor-pointer select-none rounded-full px-3 py-1.5 text-sm font-medium tracking-wide text-neutral-700",
+          "hover:text-neutral-950 dark:text-neutral-200 dark:hover:text-white",
+          "hover:bg-black/[0.04] dark:hover:bg-white/[0.06]",
+          isActive && "text-neutral-950 dark:text-white"
+        )}
       >
-        {item}
-      </motion.p>
+        <span className="relative">
+          {item}
+          {isActive && (
+            <motion.span
+              layoutId="menu-underline"
+              className="absolute -bottom-2 left-0 right-0 mx-auto h-[2px] w-4 rounded-full bg-neutral-950 dark:bg-white"
+            />
+          )}
+        </span>
+      </motion.div>
       {active !== null && children && (
         <motion.div
           initial={{ opacity: 0, scale: 0.85, y: 10 }}
@@ -42,11 +57,16 @@ export const MenuItem = ({
             <div className="absolute top-[calc(100%_+_1.2rem)] left-1/2 transform -translate-x-1/2 pt-4">
               <motion.div
                 transition={transition}
-                layoutId="active" // layoutId ensures smooth animation
-                className="bg-white dark:bg-black backdrop-blur-sm rounded-2xl overflow-hidden border border-black/[0.2] dark:border-white/[0.2] shadow-xl"
+                layoutId="active"
+                className={cn(
+                  "rounded-2xl overflow-hidden",
+                  "border border-black/[0.10] dark:border-white/[0.12]",
+                  "bg-white/90 dark:bg-black/70 backdrop-blur-xl",
+                  "shadow-[0_20px_60px_-20px_rgba(0,0,0,0.35)] dark:shadow-[0_20px_60px_-20px_rgba(0,0,0,0.7)]"
+                )}
               >
                 <motion.div
-                  layout // layout ensures smooth animation
+                  layout
                   className="w-max h-full p-4"
                 >
                   {children}
@@ -63,14 +83,23 @@ export const MenuItem = ({
 export const Menu = ({
   setActive,
   children,
+  className,
 }: {
   setActive: (item: string | null) => void;
   children: React.ReactNode;
+  className?: string;
 }) => {
   return (
     <nav
       onMouseLeave={() => setActive(null)} // resets the state
-      className="relative rounded-full border border-transparent dark:bg-black dark:border-white/[0.2] bg-white shadow-input flex justify-center space-x-4 px-8 py-6 "
+      className={cn(
+        "relative flex items-center justify-center gap-1 px-2 py-2",
+        "rounded-full border",
+        "border-black/[0.08] dark:border-white/[0.10]",
+        "bg-white/75 dark:bg-black/55 backdrop-blur-xl",
+        "shadow-[0_10px_30px_-15px_rgba(0,0,0,0.35)] dark:shadow-[0_10px_30px_-15px_rgba(0,0,0,0.7)]",
+        className
+      )}
     >
       {children}
     </nav>
@@ -109,11 +138,18 @@ export const ProductItem = ({
   );
 };
 
-export const HoveredLink = ({ children, ...rest }: any) => {
+export const HoveredLink = ({
+  children,
+  ...rest
+}: React.ComponentPropsWithoutRef<"a"> & { children: React.ReactNode }) => {
   return (
     <a
       {...rest}
-      className="text-neutral-700 dark:text-neutral-200 hover:text-black hover:dark:text-blue-300"
+      className={cn(
+        "block rounded-md px-2 py-1.5 text-sm text-neutral-700 dark:text-neutral-200",
+        "hover:bg-black/[0.04] hover:text-neutral-950 dark:hover:bg-white/[0.06] dark:hover:text-white",
+        "focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-950/30 dark:focus-visible:ring-white/30"
+      )}
     >
       {children}
     </a>
